@@ -58,16 +58,29 @@ const BurgerBuilder = (props) => {
 
     const purchaseBurger = () => {
         updateIngredients(oldIngridients => {
-            const updatedIngredients = { ...oldIngridients.ingredients };
-            const updateData = { ingredients : updatedIngredients, total: oldIngridients.total, canPurchase: oldIngridients.canPurchase, show: true};
-            return updateData;
+            const updatedIngredients = { ...oldIngridients };
+            updatedIngredients.show = true;
+            // const updateData = { ingredients : updatedIngredients, total: oldIngridients.total, canPurchase: oldIngridients.canPurchase, show: true};
+            return updatedIngredients;
         })
+    }
+
+    const updateShow = () => {
+        updateIngredients(oldIngridients => {
+            const updated = { ...oldIngridients};
+            updated.show = false;
+            return updated;
+        })
+    }
+
+    const confirmPurchase = () => {
+        alert('Confirmed purchase');
     }
 
     return (
         <div>
-            <Modal show={ingredients.show}>
-                <OrderSummary ingredients={ingredients.ingredients} />
+            <Modal show={ingredients.show} updateShow={updateShow}>
+                <OrderSummary ingredients={ingredients.ingredients} price={ingredients.total} updateShow={updateShow} confirmPurchase={confirmPurchase}/>
             </Modal>
             <Burger ingredients={ingredients.ingredients}/>
             <BuildControls addIng={addIngredients}

@@ -1,4 +1,5 @@
 import React from 'react';
+import globalStyles from '../../UI/styles.module.css';
 
 const OrderSummary = (props) => {
     const ingredientSummary = Object.keys(props.ingredients)
@@ -14,9 +15,12 @@ const OrderSummary = (props) => {
         <div>
             <h3>Your Order</h3>
             <p>A delicious burger with the following ingredients:</p>
+            <p>Total: <strong>{props.price.toFixed(2)}</strong></p>
             <ul>
                 {ingredientSummary}
             </ul>
+            <button className={`${globalStyles.Button} ${globalStyles.Danger}`} onClick={props.updateShow}>CANCEL</button>
+            <button className={`${globalStyles.Button} ${globalStyles.Success}`} onClick={props.confirmPurchase}>OK</button>
         </div>
     );
 }
