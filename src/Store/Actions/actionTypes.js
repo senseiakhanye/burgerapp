@@ -1,0 +1,10 @@
+export const PRICELIST = 'addPriceList';
+export const INCREMENT = 'addIngredients';
+export const DECREMENT = 'removeIngredients';
+export const RESET = 'RESET';
+export const AUTHORISE = 'AUTHORISE';
+export const INIT_AUTHORISE = 'INIT_AUTHORISE';
+export const AUTHORISE_LOCAL_STORAGE = 'AUTHORISE_LOCAL_STORAGE';
+export const PRICELIST_ERROR = 'PRICELIST_ERROR';
+export const UPDATE_USER = 'UPDATE_USER';
+export const GET_USER = 'GET_USER';
